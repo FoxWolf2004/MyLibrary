@@ -96,13 +96,33 @@ main {
     width: 60%;
     margin: 0 auto;
     flex-direction: row;
-
-    justify-content: space-around;
-
+    gap: 0 10px;
+    align-items: center;
     justify-self: center;
 
 }
 
+.prev,.next {
+    display: block;
+    width: 200px;
+    height: 60px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    font-size: 2em;
+    border-style: none;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.pages > p {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin: 0 auto;
+    align-items: center;
+    font-size: 2em;
+}
 .loading, .error,.welcome,.notFind {
     display: flex;
     flex-direction: column;
@@ -116,12 +136,14 @@ main {
     align-items: center;
     border-radius: 10px;
 
+    overflow-x: hidden;
+
 }
 
 .loading img {
   width: 300px;
   animation: rotation 5s infinite linear; /* Задают анимацию вращения */
-
+}
 @keyframes rotation {
   0% {
     transform: rotate(0deg); /* Начальное положение */
@@ -130,8 +152,6 @@ main {
     transform: rotate(360deg); /* Конечное положение */
   }
 }
-}
-
 .welcome,.notFind {
     width: 650px;
     padding: 20px;

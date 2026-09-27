@@ -124,7 +124,7 @@ async function getBooks(searchName) {
         limitPagesState = Math.ceil(data.numFound / 20)
 
         if (limitPagesState > 1) {
-            curentPage.textContent = `${pageState} of ${limitPagesState}pages`
+            curentPage.textContent = `${pageState} of ${limitPagesState} pages`
 
             pagesFunc(true)    
         } else {
