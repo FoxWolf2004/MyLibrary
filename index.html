@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>myLibrary</title>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <h1>MyLibrary</h1>
+            <nav>
+                <div class="navItem">
+                    <h4>My Fav</h4>
+                </div>
+
+                <div class="search">
+                    <input type="text" placeholder="book name here" class="searchText">
+                    <button class="searchButton">Search</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <section class="welcome">
+                <img src="content/icons/book.png" alt="">
+                <h1>welcome to MyLibrary</h1>
+                <p>you cat find a many lot books from all world</p>
+                <p style="color: rgba(0, 0, 0, 0.541);">type a book name and click on search button --^</p>
+            </section>
+            <section class="loading">
+                <img src="content/icons/loading.png" alt="">
+                <h1>Loading</h1>
+            </section>
+
+            <section class="error">
+                <img src="content/icons/warning.png" alt="">
+                <h1>Error</h1>
+                <p class="errorText"></p>
+            </section>
+
+            <section class="bookDisplay"></section>
+
+            <section class="pages">
+                <button class="prev">-</button>
+                <p class="curentPage"></p>
+                <button class="next">+</button>
+            </section >
+        </div>
+
+    </main>
+    <footer></footer>
+    <script src="scripts/core.js"></script>
+</body>
+</html>
