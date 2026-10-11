@@ -22,6 +22,7 @@ const errorText = document.querySelector(".errorText");
 
 const favDisplay = document.querySelector(".favDisplay");
 const favBookDisplay = document.querySelector(".favBookDisplay");
+
 let bookState = [];
 let favBooksState = [];
 
@@ -33,6 +34,7 @@ let inFav = 0
 let searchState = "";
 let limitPagesState = 0;
 let limitPagesFav = 20;
+
 
 searchButton.addEventListener("click", () => {
   console.log("Поиск книг по названию", searchText.value);
@@ -295,5 +297,11 @@ const delFromFavorit = (Book) => {
   favBooksState.splice(indexFind,1)
   localStorage.setItem("favBooks", JSON.stringify(favBooksState));
   display(favBooksState, favBookDisplay);
+
+  if (inFav === 1) {
+    getBooks(searchState)
+  } else {
+    
+  }
   console.log(indexFind);
 };
