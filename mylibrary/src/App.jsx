@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import HeaderBlock from './components/UI/header'
 import BookContainer from './components/UI/bookContainer'
+import Pagination from './components/UI/partsUi/pagination'
 
 function App() {
 
   const [searchState,setsearch] = useState('')
 
   const [pageState,setpage] = useState(1)
+  const [summPages,setSummPages] = useState(0)
+
   const [favPageState,setfavpage] = useState(0)
 
   const [bookState,setBooks] = useState([])
@@ -25,7 +28,6 @@ function App() {
             limit: 20,
             page: pageState,
           });
-
         try {
           const rawData = await fetch(`https://openlibrary.org/search.json?${params}`)
 
@@ -36,10 +38,11 @@ function App() {
           console.log(dataJson)
           const readyBooks = dataJson.docs
 
-          // limitPagesState = Math.ceil(data.numFound / 20);
+          const summ = (Math.ceil(dataJson.numFound / 20))
+          console.log("summ ",summ)
 
-          // if (limitPagesState > 1) {
-          //   curentPage.textContent = `${pageState} of ${limitPagesState} pages`;
+          setSummPages(summ)
+
 
           setBooks(readyBooks)
           console.log('Книги из API:', readyBooks)
@@ -53,16 +56,25 @@ function App() {
 
       
       console.log(searchState)
-    },[searchState])
+    },[searchState,pageState])
     
 
     
 
   return (
     <>
-    <HeaderBlock searchClick={setsearch}></HeaderBlock>
+    <HeaderBlock chPage={() => setpage(1)} searchClick={setsearch} ></HeaderBlock>
     <main>
         <BookContainer data ={bookState}></BookContainer>
+        {
+          summPages > 1 &&(
+          <Pagination pageStateNum={pageState} contPages={summPages} onCHN={() => {setpage(pageState + 1)}}  onCHP={() => {setpage(pageState - 1)}}></Pagination>
+          )
+        }
+
+
+
+
     </main>
     </>
   )

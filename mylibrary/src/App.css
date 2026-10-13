@@ -139,7 +139,7 @@ main {
     padding: 20px;
     gap: 10px;
 }
-.loading, .error,.pages,.notFind,.notFindFav {
+.loading, .error,.notFind,.notFindFav {
     display: none;
 }
 

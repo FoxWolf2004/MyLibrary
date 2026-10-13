@@ -5,7 +5,7 @@ const BookItem = ({title,cover}) => {
 
     let coverLink 
 
-    if(!cover ===''){
+    if(cover){
         coverLink =`https://covers.openlibrary.org/b/id/${cover}-M.jpg`
     }else{
         coverLink = `https://dummyimage.com/290x450&text=${title}`

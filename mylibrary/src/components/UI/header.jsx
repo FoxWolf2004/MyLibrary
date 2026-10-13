@@ -1,29 +1,43 @@
-import { useState } from "react"
+import { useState } from "react";
 
-const HeaderBlock = ({searchClick}) => {
-    const [serachText,setText] = useState('')
+const HeaderBlock = ({ searchClick, chPage }) => {
+  const [serachText, setText] = useState("");
 
-    return(
-        <>
-        <header>
+  return (
+    <>
+      <header>
         <div className="wrapper">
-            <h1>MyLibrary</h1>
-            <nav>
-                <div className="navItem">
-                    <h4 className="favPage">My Fav</h4>
-                </div>
+          <h1>MyLibrary</h1>
+          <nav>
+            <div className="navItem">
+              <h4 className="favPage">My Fav</h4>
+            </div>
 
-                <div className="search">
-                    <input type="text" placeholder="book name here" className="searchText"  onChange={(event) => {setText(event.target.value)}}/>
-                    <button className="searchButton" onClick={() => {searchClick(serachText)
-                    }}>Search</button>
-                </div>
-            </nav>
+            <div className="search">
+              <input
+                type="text"
+                placeholder="book name here"
+                className="searchText"
+                onChange={(event) => {
+                  setText(event.target.value);
+                }}
+              />
+              <button
+                className="searchButton"
+                onClick={() => {
+                  chPage();
+                  searchClick(serachText);
+
+                }}
+              >
+                Search
+              </button>
+            </div>
+          </nav>
         </div>
-    </header>
+      </header>
     </>
-    )
-}
+  );
+};
 
-
-export default HeaderBlock
+export default HeaderBlock;
