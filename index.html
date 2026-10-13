@@ -12,7 +12,7 @@
             <h1>MyLibrary</h1>
             <nav>
                 <div class="navItem">
-                    <h4>My Fav</h4>
+                    <h4 class="favPage">My Fav</h4>
                 </div>
 
                 <div class="search">
@@ -23,7 +23,7 @@
         </div>
     </header>
     <main>
-        <div class="wrapper">
+        <div class="wrapper" id="searchMain">
             <section class="welcome">
                 <img src="content/icons/book.png" alt="">
                 <h1>welcome to MyLibrary</h1>
@@ -32,7 +32,7 @@
             </section>
 
 
-            <section class="notFind">
+            <section class="notFindFav">
                 <img src="content/icons/book.png" alt="">
                 <h1>Oh i cannot find</h1>
                 <p>Maybe you make a mistake try agane</p>
@@ -50,6 +50,8 @@
                 <p class="errorText"></p>
             </section>
 
+            
+
             <section class="bookDisplay"></section>
 
             <section class="pages">
@@ -57,6 +59,34 @@
                 <p class="curentPage"></p>
                 <button class="next">></button>
             </section >
+        </div>
+
+        <div class="favDisplay">
+            <div class="wrapper">
+
+                <section class="notFind" id="notFindFav">
+                    <img src="content/icons/book.png" alt="">
+                    <h1>Oh i cannot find</h1>
+                    <p>Maybe you make a mistake try agane</p>
+                    <p style="color: rgba(0, 0, 0, 0.541);">type a book name and click on search button</p>
+                </section>
+
+                <section class="loading">
+                    <img src="content/icons/loading.png" alt="">
+                    <h1>Loading</h1>
+                </section>
+
+                <section class="error">
+                    <img src="content/icons/warning.png" alt="">
+                    <h1>Error</h1>
+                    <p class="errorText"></p>
+                </section>
+
+                <button class="back">back</button>
+
+                <section class="favBookDisplay"></section>
+
+            </div>
         </div>
 
     </main>
