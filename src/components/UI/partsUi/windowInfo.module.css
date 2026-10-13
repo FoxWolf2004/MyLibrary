@@ -1,0 +1,17 @@
+.WindowInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 500px;
+    height: auto;
+    margin: 30px auto;
+    background-color: white;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    border-radius: 10px;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+}

@@ -1,0 +1,151 @@
+*{
+    padding: 0;
+    margin: 0;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+}
+
+body{
+    background-color: rgb(240, 239, 236);
+}
+
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    margin: 0 auto;
+    padding: 10px;
+}
+.blocksHead {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+}
+header {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    float: right;
+}
+header > .wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    align-items: center;
+}
+
+
+.bookContainer,.favbookContainer{
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px 300px;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin: 30px auto;    
+}
+
+main {
+    display: block;
+    width: 100%;
+}
+.favButton,.unfavButton {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
+
+.bookDisplay,.favBookDisplay {
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px 300px;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin: 30px auto;    
+}
+
+
+
+
+
+.pages {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    flex-direction: row;
+    gap: 0 10px;
+    align-items: center;
+    justify-self: center;
+
+}
+
+.prev,.next,.back {
+    display: block;
+    width: 200px;
+    height: 60px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    font-size: 2em;
+    border-style: none;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+
+
+
+.pages > p {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin: 0 auto;
+    align-items: center;
+    font-size: 2em;
+}
+
+
+.loading img {
+  width: 300px;
+  animation: rotation 5s infinite linear; /* Задают анимацию вращения */
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg); /* Начальное положение */
+  }
+  100% {
+    transform: rotate(360deg); /* Конечное положение */
+  }
+}
+.welcome,.notFind {
+    width: 650px;
+    padding: 20px;
+    gap: 10px;
+}
+.loading, .error,.notFind,.notFindFav {
+    display: none;
+}
+
+
+.buttonHeart {
+    width: 20px;
+
+    margin: auto;
+}
