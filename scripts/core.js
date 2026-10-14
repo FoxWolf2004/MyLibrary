@@ -40,7 +40,7 @@ searchButton.addEventListener("click", () => {
   searchState = searchText.value;
   pageState = 1;
 
-  getBooks(searchState);
+  getBooks(searchState,bookDisplay);
 
   searchText.value = "";
 });
@@ -291,9 +291,14 @@ const delFromFavorit = (Book) => {
   const indexFind = favBooksState.findIndex((book) => {
     return book.key === Book.key;
   });
-
+  
   favBooksState.splice(indexFind,1)
   localStorage.setItem("favBooks", JSON.stringify(favBooksState));
+  
+  if(inFav === 1){
+    getBooks(searchState,bookDisplay);
+  }
+
   display(favBooksState, favBookDisplay);
   console.log(indexFind);
 };
