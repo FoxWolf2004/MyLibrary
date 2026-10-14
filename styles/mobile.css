@@ -1,0 +1,28 @@
+/* Планшеты: от 768px до 1024px */
+
+@media screen and (max-width: 1440px) {
+    .wrapper{
+        max-width: 1024px;
+    }
+
+    .bookDisplay,.favBookDisplay {
+    grid-template-columns: 30% 30% 30%;
+    margin: 10px auto;    
+        }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .wrapper{
+        max-width: 1024px;
+    }
+}
+
+/* Телефоны: до 767px */
+@media screen and (max-width: 767px) {
+}
+
+/* Маленькие телефоны: до 480px */
+@media screen and (max-width: 480px) {
+    /* Стили для маленьких телефонов */
+}

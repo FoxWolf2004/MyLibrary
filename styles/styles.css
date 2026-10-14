@@ -83,12 +83,12 @@ main,.favDisplay {
     width: 100%;
     height: auto;
 
-    padding: 20px;
+    padding: 10px 20px;
 
     box-sizing: border-box;
     border-radius: 10px;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 5px;
     justify-self: center;
 
     background-color: black;
