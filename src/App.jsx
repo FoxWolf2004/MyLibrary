@@ -15,6 +15,24 @@ function App() {
 
   const [bookState,setBooks] = useState([])
   const [favBookState,setFavBooks] = useState([])
+  
+
+  const nextPage = () => {
+  if (pageState < summPages) {
+    setpage(pageState + 1)
+  } else {
+    console.log("u are in a last page boddy")
+    setpage(pageState + 0)
+  }}
+
+const prevPage = () => {
+  if (pageState > 1) {
+    setpage(pageState - 1)
+  } else {
+    console.log("u are in a first page boddy")
+    setpage(pageState - 0)
+  }}
+
 
     useEffect(()=> {
 
@@ -58,7 +76,8 @@ function App() {
     },[searchState,pageState])
     
 
-    
+
+
 
   return (
     <>
@@ -67,13 +86,9 @@ function App() {
         <BookContainer data ={bookState}></BookContainer>
         {
           summPages > 1 &&(
-          <Pagination pageStateNum={pageState} contPages={summPages} onCHN={() => {setpage(pageState + 1)}}  onCHP={() => {setpage(pageState - 1)}}></Pagination>
+          <Pagination pageStateNum={pageState} contPages={summPages} onCHN={() => {nextPage()}}  onCHP={() => {prevPage()}}></Pagination>
           )
         }
-
-
-
-
     </main>
     </>
   )
