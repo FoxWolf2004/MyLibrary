@@ -34,17 +34,38 @@ let searchState = "";
 let limitPagesState = 0;
 let limitPagesFav = 20;
 
-searchButton.addEventListener("click", () => {
+searchButton.addEventListener("click", (event) => {
   console.log("Поиск книг по названию", searchText.value);
-
+  event.preventDefault();
   searchState = searchText.value;
-  pageState = 1;
+  if (!searchState || searchState === "") {
+    alert("You Cannot search without text type somthing!");
+  } else {
+    pageState = 1;
 
-  getBooks(searchState, bookDisplay);
+    getBooks(searchState, bookDisplay);
 
-  searchText.value = "";
+    searchText.value = "";
+  }
 });
+searchText.addEventListener("keydown", (event) => {
+  if (event.key === "enter" || event.key === "Enter") {
+    
+    event.preventDefault();
 
+    searchState = searchText.value;
+
+    if (!searchState || searchState === "") {
+      alert("You Cannot search without text type somthing!");
+    } else {
+      pageState = 1;
+
+      getBooks(searchState, bookDisplay);
+
+      searchText.value = "";
+    }
+  }
+});
 back.addEventListener("click", () => {
   favPageState = 1;
   inFav = 0;
@@ -135,6 +156,7 @@ async function getBooks(searchName) {
   pagesFunc(false);
   errorFunc(false, "");
   loadingFunc(true);
+  document.querySelector(".searchButton").disabled = true;
 
   try {
     bookDisplay.innerHTML = "";
@@ -165,6 +187,7 @@ async function getBooks(searchName) {
 
     loadingFunc(false);
     display(bookState, bookDisplay);
+    document.querySelector(".searchButton").disabled = false;
   } catch (error) {
     loadingFunc(false);
     errorFunc(true, error);
@@ -222,13 +245,12 @@ const display = (array, where) => {
       const readButton = document.createElement("a");
       readButton.setAttribute("class", "readButton");
 
-         readButton.setAttribute(
+      readButton.setAttribute(
         "href",
         `https://z-lib.fm/s/?q=${book.title}&e=1`,
-      );        
-      readButton.setAttribute("target","_blank")
-      readButton.textContent = "try find at z-lib.fm"
-
+      );
+      // readButton.setAttribute("target","_blank")
+      // readButton.textContent = "try find at z-lib.fm"
 
       favButtonImg.setAttribute("class", "buttonHeart");
       unfavButtonImg.setAttribute("class", "buttonHeart");
@@ -262,7 +284,7 @@ const display = (array, where) => {
       }
 
       favButton.addEventListener("click", (event) => {
-        event.stopPropagation()
+        event.stopPropagation();
         addTofavorit(book);
 
         favButton.setAttribute("style", "display: none;");
@@ -270,35 +292,34 @@ const display = (array, where) => {
       });
 
       unfavButton.addEventListener("click", (event) => {
-        event.stopPropagation()
+        event.stopPropagation();
         delFromFavorit(book);
-        event.stopPropagation()
+        event.stopPropagation();
         unfavButton.setAttribute("style", "display: none;");
         favButton.setAttribute("style", "display: block;");
       });
 
-
-
       const bookTitle = document.createElement("h2");
       bookTitle.textContent = book.title;
-      
-      bookTitle.addEventListener("click",(event)=>{
-        event.stopPropagation()
-        bookModal(book)
-      })
 
-      bookItem.append(favButton, unfavButton, bookImage, bookTitle,readButton);
+      bookTitle.addEventListener("click", (event) => {
+        event.stopPropagation();
+        bookModal(book);
+      });
+
+      bookItem.append(favButton, unfavButton, bookImage, bookTitle, readButton);
 
       where.append(bookItem);
     });
   }
 };
 
-
 const bookModal = (book) => {
   // Находим существующий overlay
-    document.querySelector(".modalOverlay").setAttribute("style","display: block;")
-    
+  document
+    .querySelector(".modalOverlay")
+    .setAttribute("style", "display: block;");
+
   // Создаём модальное окно
   const modal = document.createElement("div");
   modal.classList.add("bookModal");
@@ -323,9 +344,7 @@ const bookModal = (book) => {
   title.textContent = book.title || "Название неизвестно";
 
   const author = document.createElement("p");
-  author.textContent = `Автор: ${
-    book.author_name?.join(", ") || "Неизвестен"
-  }`;
+  author.textContent = `Автор: ${book.author_name?.join(", ") || "Неизвестен"}`;
 
   const year = document.createElement("p");
   year.textContent = `Год публикации: ${
@@ -333,9 +352,7 @@ const bookModal = (book) => {
   }`;
 
   const languages = document.createElement("p");
-  languages.textContent = `Язык: ${
-    book.language?.join(", ") || "Не указан"
-  }`;
+  languages.textContent = `Язык: ${book.language?.join(", ") || "Не указан"}`;
 
   const editions = document.createElement("p");
   editions.textContent = `Количество изданий: ${
@@ -382,19 +399,18 @@ const bookModal = (book) => {
     fullText,
     coverSize,
     key,
-    link
+    link,
   );
 
-  modal.append( cover, info ,closeButton);
-  document.querySelector(".modalOverlay").append(modal)
+  modal.append(cover, info, closeButton);
+  document.querySelector(".modalOverlay").append(modal);
   closeButton.addEventListener("click", () => {
     modal.remove();
-    document.querySelector(".modalOverlay").setAttribute("style","display:none;")
+    document
+      .querySelector(".modalOverlay")
+      .setAttribute("style", "display:none;");
   });
-
 };
-
-
 
 const addTofavorit = (Book) => {
   const clone = favBooksState.find((BookF) => {
@@ -419,13 +435,13 @@ const delFromFavorit = (Book) => {
   });
 
   if (indexFind === -1) {
-    console.log("this favorite book not have at favorite save data. RERENDER")
+    console.log("this favorite book not have at favorite save data. RERENDER");
     if (inFav === 1) {
       getBooks(searchState, bookDisplay);
     }
 
-    display(favBooksState, favBookDisplay);    
-  }else{
+    display(favBooksState, favBookDisplay);
+  } else {
     favBooksState.splice(indexFind, 1);
     localStorage.setItem("favBooks", JSON.stringify(favBooksState));
 
@@ -435,7 +451,6 @@ const delFromFavorit = (Book) => {
 
     display(favBooksState, favBookDisplay);
   }
-
 
   console.log(indexFind);
 };

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/mobile.css">
-    <title>myLibrary</title>
+    <title>MyLibrary</title>
 </head>
 <body>
     <div class="modalOverlay"></div>
@@ -14,13 +14,13 @@
             <h1>MyLibrary</h1>
             <nav>
                 <div class="navItem">
-                    <button class="favPage">My Fav</button>
+                    <button class="favPage">My Favorites</button>
                 </div>
 
-                <div class="search">
-                    <input type="text" placeholder="book name here" class="searchText">
-                    <button class="searchButton">Search</button>
-                </div>
+                <form class="search">
+                    <input type="text" placeholder="Enter a book title" class="searchText" required>
+                    <button type="submit" class="searchButton">Search</button>
+                </form>
             </nav>
         </div>
     </header>
@@ -28,39 +28,36 @@
         <div class="wrapper" id="searchMain">
             <section class="welcome">
                 <img src="content/icons/book.png" alt="">
-                <h1>welcome to MyLibrary</h1>
-                <p>you cat find a many lot books from all world</p>
-                <p style="color: rgba(0, 0, 0, 0.541);">type a book name and click on search button</p>
+                <h1>Welcome to MyLibrary!</h1>
+                <p>Discover thousands of books from around the world.</p>
+                <p style="color: rgba(0, 0, 0, 0.541);">Enter a book title and click the Search button.</p>
             </section>
-
 
             <section class="notFindFav">
                 <img src="content/icons/book.png" alt="">
-                <h1>Oh i cannot find</h1>
-                <p>Maybe you make a mistake try agane</p>
-                <p style="color: rgba(0, 0, 0, 0.541);">type a book name and click on search button</p>
+                <h1>No Books Found</h1>
+                <p>We couldn't find any books matching your search.</p>
+                <p style="color: rgba(0, 0, 0, 0.541);">Check your spelling or try a different search.</p>
             </section>
 
             <section class="loading">
                 <img src="content/icons/loading.png" alt="">
-                <h1>Loading</h1>
+                <h1>Loading...</h1>
             </section>
 
             <section class="error">
                 <img src="content/icons/warning.png" alt="">
-                <h1>Error</h1>
+                <h1>Something Went Wrong</h1>
                 <p class="errorText"></p>
             </section>
-
-            
 
             <section class="bookDisplay"></section>
 
             <section class="pages">
-                <button class="prev"><</button>
+                <button class="prev">&lt;</button>
                 <p class="curentPage"></p>
-                <button class="next">></button>
-            </section >
+                <button class="next">&gt;</button>
+            </section>
         </div>
 
         <div class="favDisplay">
@@ -68,23 +65,23 @@
 
                 <section class="notFind" id="notFindFav">
                     <img src="content/icons/book.png" alt="">
-                    <h1>Oh i cannot find</h1>
-                    <p>Maybe you make a mistake try agane</p>
-                    <p style="color: rgba(0, 0, 0, 0.541);">type a book name and click on search button</p>
+                    <h1>No Favorites Yet</h1>
+                    <p>You haven't added any books to your favorites yet.</p>
+                    <p style="color: rgba(0, 0, 0, 0.541);">Search for books and add them to your favorites!</p>
                 </section>
 
                 <section class="loading">
                     <img src="content/icons/loading.png" alt="">
-                    <h1>Loading</h1>
+                    <h1>Loading...</h1>
                 </section>
 
                 <section class="error">
                     <img src="content/icons/warning.png" alt="">
-                    <h1>Error</h1>
+                    <h1>Something Went Wrong</h1>
                     <p class="errorText"></p>
                 </section>
 
-                <button class="back">back</button>
+                <button class="back">Back</button>
 
                 <section class="favBookDisplay"></section>
 

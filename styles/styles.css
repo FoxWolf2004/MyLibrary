@@ -3,6 +3,8 @@
     margin: 0;
 
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    
     overflow-x: hidden;
 }
 
@@ -34,7 +36,7 @@ body{
 header {
     display: flex;
     width: 100%;
-    height: 80px;
+    height: auto;
     background-color: rgb(255, 255, 255);
     float: right;
 }
@@ -48,11 +50,16 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    max-width: 300px;
+    width: 100%;
+    height: auto;
 
-    gap: 20px;
+
+    gap: 10px;
 
     align-items: center;
 }
+
 
 main,.favDisplay {
     display: flex;
@@ -76,7 +83,7 @@ main,.favDisplay {
 
 .bookDisplay,.favBookDisplay {
     display: grid;
-    grid-template-columns: 300px 300px 300px 300px 300px;
+    grid-template-columns: repeat(auto-fill,300px);
     justify-content: center;
     gap: 20px;
     width: 100%;
@@ -159,22 +166,26 @@ main,.favDisplay {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 500px;
+    width: 80%;
     height: auto;
     margin: 30px auto;
-    background-color: white;
     justify-content: center;
     justify-self: center;
     align-items: center;
-    border-radius: 10px;
 
     overflow-x: hidden;
     overflow-y: hidden;
 
 }
+.welcome h1 {
+    text-align: center;
+}
 
+.welcome p {
+    text-align: center;
+}
 .loading img {
-  width: 300px;
+  width: 50%;
   animation: rotation 5s infinite linear; /* Задают анимацию вращения */
 }
 @keyframes rotation {
@@ -186,9 +197,15 @@ main,.favDisplay {
   }
 }
 .welcome,.notFind {
-    width: 650px;
+    width: 80%;
     padding: 20px;
     gap: 10px;
+
+    background-color: white;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    border-radius: 10px;
 }
 .loading, .error,.pages,.notFind,.notFindFav {
     display: none;
@@ -220,3 +237,24 @@ main,.favDisplay {
     gap: 5px;
     margin: 0 10px;
 }
+.search {
+    display: flex;
+    width: 100%;
+    height: auto;
+
+    justify-content: right;
+
+}
+.searchText {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+
+
+    text-align: center;
+
+    height: 45px;
+}
+

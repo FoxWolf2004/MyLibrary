@@ -1,43 +1,60 @@
 /* Планшеты: от 768px до 1024px */
 
 @media screen and (max-width: 1440px) {
-
-
-    .bookDisplay,.favBookDisplay {
+  .bookDisplay,
+  .favBookDisplay {
     grid-template-columns: 350px 350px 350px;
     width: 100%;
-    margin: 10px auto;    
-        }
+    margin: 10px auto;
+  }
 }
 
-
 @media screen and (max-width: 1170px) {
-
-        .bookDisplay,.favBookDisplay {
+  .bookDisplay,
+  .favBookDisplay {
     grid-template-columns: 350px 350px;
-    margin: 10px auto;    
-        }
-
+    margin: 10px auto;
+  }
 }
 
 /* Телефоны: до 767px */
 @media screen and (max-width: 767px) {
-    .favButton,.unfavButton{
-        width: 60px;
-        height: 60px;
-    }
-        .bookDisplay,.favBookDisplay {
-    grid-template-columns: 250px 250px;
-    margin: 10px auto;    
-        }
+  .favButton,
+  .unfavButton {
+    width: 60px;
+    height: 60px;
+  }
+  .bookDisplay,
+  .favBookDisplay {
+     grid-template-columns: 80%;
+    margin: 10px auto;
+  }
 }
 
-
 @media screen and (max-width: 578px) {
-    /* Стили для маленьких телефонов */
-        
-            .bookDisplay,.favBookDisplay {
-    grid-template-columns: 80%;
-    margin: 10px auto;    
-        }
+  /* Стили для маленьких телефонов */
+
+  .bookDisplay,
+  .favBookDisplay {
+    margin: 10px auto;
+  }
+
+  .bookItem {
+    font-size: 3vw;
+  }
+  .welcome img {
+    width: 100%;
+  }
+  header > .wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  nav {
+    justify-content: center;
+    max-width: 100%;
+  }
+
+
+
 }
