@@ -1,5 +1,6 @@
 const searchButton = document.querySelector(".searchButton");
-
+const userLang = navigator.language
+console.log(userLang)
 const favPage = document.querySelector(".favPage");
 
 const searchText = document.querySelector(".searchText");
@@ -40,13 +41,22 @@ searchButton.addEventListener("click", (event) => {
   searchState = searchText.value;
   if (!searchState || searchState === "") {
     alert("You Cannot search without text type somthing!");
-  } else {
-    pageState = 1;
+    } else {
 
-    getBooks(searchState, bookDisplay);
+      favPageState = 1;
+      inFav = 0;
+      favDisplay.setAttribute("style", "display: none;");
 
-    searchText.value = "";
-  }
+      bookDisplayID.setAttribute("style", "display: flex;");
+      notFindFunc(false);
+      
+      pageState = 1;
+
+      getBooks(searchState, bookDisplay);
+
+      searchText.value = "";
+      
+    }
 });
 searchText.addEventListener("keydown", (event) => {
   if (event.key === "enter" || event.key === "Enter") {
@@ -65,7 +75,7 @@ searchText.addEventListener("keydown", (event) => {
 
       bookDisplayID.setAttribute("style", "display: flex;");
       notFindFunc(false);
-      
+
       pageState = 1;
 
       getBooks(searchState, bookDisplay);
