@@ -204,9 +204,20 @@ main,.favDisplay {
 .welcome p {
     text-align: center;
 }
+
 .loading img {
   width: 50%;
   animation: rotation 5s infinite linear; /* Задают анимацию вращения */
+}
+.error{
+    width: 50%;
+}
+
+.error h1,p {
+    text-align: center;
+}
+.error img {
+    width: 50%;
 }
 @keyframes rotation {
   0% {
