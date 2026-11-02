@@ -58,11 +58,20 @@ searchText.addEventListener("keydown", (event) => {
     if (!searchState || searchState === "") {
       alert("You Cannot search without text type somthing!");
     } else {
+
+      favPageState = 1;
+      inFav = 0;
+      favDisplay.setAttribute("style", "display: none;");
+
+      bookDisplayID.setAttribute("style", "display: flex;");
+      notFindFunc(false);
+      
       pageState = 1;
 
       getBooks(searchState, bookDisplay);
 
       searchText.value = "";
+      
     }
   }
 });

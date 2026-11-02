@@ -59,13 +59,33 @@ nav {
 
     align-items: center;
 }
+.favPage {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
 
+    background-color: white;
+    border-color: blueviolet;
+}
+
+.favPage img {
+    display: block;
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+}
 
 main,.favDisplay {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: auto;
+
+    justify-content: center;
 }
 
 .favDisplay{
@@ -249,12 +269,42 @@ main,.favDisplay {
     display: block;
     width: 100%;
     border-radius: 10px;
+    border-radius: 10px 0px  0px 10px;
     border-style: solid;
+    border-right: none;
     border-width: 1px;
 
 
     text-align: center;
-
+    border-color: blueviolet;
     height: 45px;
 }
+.searchText:active, .searchText:focus {
+    outline: none;
+    border-radius: 10px;
+    border-radius: 10px 0px  0px 10px;
+    border-style: solid;
+    border-right: none;
+    border-width: 1px;
+    
+}
 
+.searchButton{
+    width: 50px;
+    height: auto;
+    
+    border-radius: 0px 10px  10px 0;
+    border-style: solid;
+    border-left: none;
+    border-width: 1px;
+
+    background-color: white;
+    border-color: blueviolet;
+}
+
+.searchButton img {
+    display: block;
+    width: 90%;
+    height: auto;
+    margin:  0 auto;
+}
