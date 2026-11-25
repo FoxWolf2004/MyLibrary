@@ -23,6 +23,8 @@ const errorText = document.querySelector(".errorText");
 
 const favDisplay = document.querySelector(".favDisplay");
 const favBookDisplay = document.querySelector(".favBookDisplay");
+
+
 let bookState = [];
 let favBooksState = [];
 
@@ -307,7 +309,7 @@ const display = (array, where) => {
         addTofavorit(book);
 
         favButton.setAttribute("style", "display: none;");
-        unfavButton.setAttribute("style", "display: block;");
+        unfavButton.setAttribute("style", "display: flex;");
       });
 
       unfavButton.addEventListener("click", (event) => {
@@ -315,7 +317,7 @@ const display = (array, where) => {
         delFromFavorit(book);
         event.stopPropagation();
         unfavButton.setAttribute("style", "display: none;");
-        favButton.setAttribute("style", "display: block;");
+        favButton.setAttribute("style", "display: flex;");
       });
 
       const bookTitle = document.createElement("h2");
