@@ -1,60 +1,134 @@
-/* Планшеты: от 768px до 1024px */
 
-@media screen and (max-width: 1440px) {
-  .bookDisplay,
-  .favBookDisplay {
-    grid-template-columns: 350px 350px 350px;
-    width: 100%;
-    margin: 10px auto;
-  }
+/* =========================
+   TABLETS
+   До 1024px
+========================= */
+
+@media (max-width: 1024px) {
+    .bookDisplay,
+    .favBookDisplay {
+        gap: 20px;
+    }
+
+    .bookModal {
+        width: 95%;
+    }
 }
 
-@media screen and (max-width: 1170px) {
-  .bookDisplay,
-  .favBookDisplay {
-    grid-template-columns: 350px 350px;
-    margin: 10px auto;
-  }
+/* =========================
+   MOBILE
+   До 767px
+========================= */
+
+@media (max-width: 767px) {
+
+    .wrapper {
+        width: min(100% - 24px, 600px);
+        padding-block: 12px;
+    }
+
+    header > .wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    header h1 {
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+        max-width: none;
+    }
+
+    .bookDisplay,
+    .favBookDisplay {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 450px;
+        gap: 18px;
+        margin-block: 20px;
+    }
+
+    .bookItem {
+        padding: 14px;
+    }
+
+    .bookItem > img {
+        max-height: 500px;
+    }
+
+    .pages {
+        gap: 12px;
+    }
+
+    .prev,
+    .next {
+        min-width: 48px;
+        min-height: 44px;
+        padding: 8px 14px;
+    }
+
+    .favButton,
+    .unfavButton {
+        width: 48px;
+        height: 48px;
+    }
+
+    .bookModal {
+        flex-direction: column;
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .bookModal__info {
+        margin: 12px 0 0;
+    }
 }
 
-/* Телефоны: до 767px */
-@media screen and (max-width: 767px) {
-  .favButton,
-  .unfavButton {
-    width: 60px;
-    height: 60px;
-  }
-  .bookDisplay,
-  .favBookDisplay {
-     grid-template-columns: 80%;
-    margin: 10px auto;
-  }
-}
+/* =========================
+   SMALL MOBILE
+   До 400px
+========================= */
 
-@media screen and (max-width: 578px) {
-  /* Стили для маленьких телефонов */
+@media (max-width: 400px) {
 
-  .bookDisplay,
-  .favBookDisplay {
-    margin: 10px auto;
-  }
+    .wrapper {
+        width: calc(100% - 20px);
+    }
 
-  .bookItem {
-    font-size: 3vw;
-  }
-  .welcome img {
-    width: 100%;
-  }
-  header > .wrapper {
-    flex-direction: column;
-    height: auto;
-  }
+    .searchText {
+        font-size: 14px;
+        padding-inline: 8px;
+    }
 
-  nav {
-    justify-content: center;
-    max-width: 100%;
-  }
+    .favPage {
+        width: 42px;
+        height: 42px;
+    }
 
+    .bookDisplay,
+    .favBookDisplay {
+        gap: 14px;
+    }
 
+    .bookItem {
+        padding: 12px;
+    }
 
+    .pages {
+        gap: 8px;
+    }
+
+    .prev,
+    .next {
+        min-width: 42px;
+        padding: 6px 10px;
+    }
+
+    .welcome,
+    .notFind,
+    .notFindFav {
+        padding: 14px;
+    }
 }

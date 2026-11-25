@@ -1,321 +1,464 @@
-*{
-    padding: 0;
+
+/* =========================
+   1. RESET
+========================= */
+
+* {
     margin: 0;
-
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-    
-    overflow-x: hidden;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
+html {
+    min-width: 320px;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
     background-color: rgb(240, 239, 236);
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+        "Open Sans", "Helvetica Neue", sans-serif;
+
+    overflow-x: clip;
 }
 
-.readButton{
-    display: block;
-    width: 150px;
-    height: auto;;
-
-    background-color: aliceblue;
+button,
+input {
+    font: inherit;
 }
+
+button {
+    cursor: pointer;
+}
+
+/* =========================
+   2. WRAPPER
+========================= */
+
 .wrapper {
     display: flex;
-    width: 100%;
     flex-direction: column;
 
-    margin: 0 auto;
-    padding: 10px;
+    width: min(100% - 32px, 1400px);
+    margin-inline: auto;
+    padding-block: 16px;
 }
-.blocksHead {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: auto;
-}
+
+/* =========================
+   3. HEADER
+========================= */
+
 header {
-    display: flex;
     width: 100%;
-    height: auto;
-    background-color: rgb(255, 255, 255);
-    float: right;
+    background-color: white;
 }
+
 header > .wrapper {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
+}
+
+header h1 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
 }
 
 nav {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-
-
-    gap: 10px;
-
     align-items: center;
+    justify-content: flex-end;
+
+    width: min(100%, 400px);
+    gap: 12px;
 }
+
 .favPage {
     display: flex;
+    flex-shrink: 0;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    align-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid blueviolet;
     border-radius: 10px;
-    border-style: solid;
-    border-width: 1px;
 
     background-color: white;
-    border-color: blueviolet;
 }
 
 .favPage img {
-    display: block;
     width: 70%;
-    height: auto;
-    margin: 0 auto;
+    height: 70%;
+    object-fit: contain;
 }
 
-main,.favDisplay {
+/* =========================
+   4. SEARCH
+========================= */
+
+.search {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+}
+
+.searchText {
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+
+    padding: 0 12px;
+
+    border: 1px solid blueviolet;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+
+    text-align: left;
+    background-color: white;
+}
+
+.searchText:focus {
+    outline: 2px solid blueviolet;
+    outline-offset: -2px;
+}
+
+.searchButton {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid blueviolet;
+    border-radius: 0 10px 10px 0;
+
+    background-color: white;
+}
+
+.searchButton img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+/* =========================
+   5. MAIN
+========================= */
+
+main,
+.favDisplay {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: auto;
-
-    justify-content: center;
 }
 
-.favDisplay{
+.favDisplay {
     display: none;
 }
-.favButton,.unfavButton {
-    width: 40px;
-    height: 40px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-sizing: border-box;
-}
 
+/* =========================
+   6. BOOK GRID
+========================= */
 
-
-.bookDisplay,.favBookDisplay {
+.bookDisplay,
+.favBookDisplay {
     display: grid;
-    grid-template-columns: repeat(auto-fill,300px);
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 260px), 300px)
+    );
+
     justify-content: center;
-    gap: 20px;
+    align-items: stretch;
+
+    gap: 24px;
+
     width: 100%;
-    margin: 30px auto;    
+    margin: 30px auto;
 }
+
+/* =========================
+   7. BOOK ITEM
+========================= */
 
 .bookItem {
     display: flex;
+    flex-direction: column;
 
     width: 100%;
-    height: auto;
+    min-width: 0;
 
-    padding: 10px 20px;
+    padding: 16px;
 
-    box-sizing: border-box;
-    border-radius: 10px;
-    flex-direction: column;
-    gap: 5px;
-    justify-self: center;
+    gap: 10px;
+
+    border-radius: 12px;
 
     background-color: black;
     color: white;
 }
-
-.modalOverlay{
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.349);
-}
-
 
 .bookItem > img {
     display: block;
+
     width: 100%;
-    height: 450px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+
     object-fit: cover;
+
     border-radius: 10px;
-    box-sizing: border-box;
 }
+
+.bookItem h2 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    overflow-wrap: anywhere;
+}
+
+.bookItem p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   8. BOOK BUTTONS
+========================= */
+
+.favButton,
+.unfavButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border: none;
+    border-radius: 10px;
+}
+
+.buttonHeart {
+    display: block;
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* =========================
+   9. PAGINATION
+========================= */
 
 .pages {
     display: flex;
-    width: 60%;
-    margin: 0 auto;
-    flex-direction: row;
-    gap: 0 10px;
+    justify-content: center;
     align-items: center;
-    justify-self: center;
 
+    width: 100%;
+    gap: clamp(10px, 3vw, 30px);
+
+    margin: 20px auto;
 }
 
-.prev,.next,.back {
-    display: block;
-    width: 200px;
-    height: 60px;
-    cursor: pointer;
+.prev,
+.next,
+.back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 60px;
+    min-height: 48px;
+
+    padding: 8px 20px;
+
+    border: none;
+    border-radius: 10px;
+
     background-color: black;
     color: white;
-    font-size: 2em;
-    border-style: none;
-    border-radius: 10px;
-    margin: 0 auto;
+
+    font-size: clamp(1rem, 2vw, 1.5rem);
 }
-
-
-
 
 .pages > p {
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-    margin: 0 auto;
-    align-items: center;
-    font-size: 2em;
+    font-size: clamp(1.1rem, 3vw, 1.8rem);
+    text-align: center;
 }
-.loading, .error,.welcome,.notFind,.notFindFav {
+
+/* =========================
+   10. STATES
+========================= */
+
+.loading,
+.error,
+.welcome,
+.notFind,
+.notFindFav {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 80%;
-    height: auto;
-    margin: 30px auto;
+    align-items: center;
     justify-content: center;
-    justify-self: center;
-    align-items: center;
 
-    overflow-x: hidden;
-    overflow-y: hidden;
+    width: min(100%, 800px);
 
-}
-.welcome h1 {
+    height: auto;
+
+    gap: 12px;
+
+    margin: 30px auto;
+    padding: 20px;
+
     text-align: center;
 }
 
-.welcome p {
-    text-align: center;
+.welcome,
+.notFind {
+    background-color: white;
+    border-radius: 12px;
+}
+
+.welcome h1,
+.notFind h1,
+.notFindFav h1 {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+}
+
+.welcome p,
+.notFind p,
+.notFindFav p {
+    line-height: 1.5;
+}
+
+.welcome img,
+.notFind img,
+.notFindFav img {
+    width: min(100%, 200px);
+    height: auto;
+    object-fit: contain;
 }
 
 .loading img {
-  width: 50%;
-  animation: rotation 5s infinite linear; /* Задают анимацию вращения */
-}
-.error{
-    width: 50%;
+    width: min(50%, 200px);
+    animation: rotation 5s infinite linear;
 }
 
-.error h1,p {
+.error {
+    width: min(100%, 600px);
+}
+
+.error img {
+    width: min(50%, 200px);
+}
+
+.error h1,
+.error p {
     text-align: center;
 }
-.error img {
-    width: 50%;
-}
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg); /* Начальное положение */
-  }
-  100% {
-    transform: rotate(360deg); /* Конечное положение */
-  }
-}
-.welcome,.notFind {
-    width: 80%;
-    padding: 20px;
-    gap: 10px;
 
-    background-color: white;
-    justify-content: center;
-    justify-self: center;
-    align-items: center;
-    border-radius: 10px;
-}
-.loading, .error,.pages,.notFind,.notFindFav {
+.loading,
+.error,
+.pages,
+.notFind,
+.notFindFav {
     display: none;
 }
 
+/* =========================
+   11. ANIMATION
+========================= */
 
-.buttonHeart {
-    width: 20px;
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
 
-    margin: auto;
+    to {
+        transform: rotate(360deg);
+    }
 }
 
+/* =========================
+   12. MODAL
+========================= */
+
+.modalOverlay {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 100;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.55);
+}
 
 .bookModal {
     display: flex;
-    width: 80%;
+
+    width: min(90%, 900px);
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    margin: 30px auto;
+    padding: clamp(16px, 3vw, 30px);
+
+    border-radius: 12px;
+
     background-color: black;
     color: white;
-
-    padding: 20px;
-    box-sizing: border-box;
-    margin: 30px auto;
-    border-radius: 10px; 
 }
 
 .bookModal__info {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    margin: 0 10px;
+
+    min-width: 0;
+
+    gap: 10px;
+    margin-inline: 10px;
 }
-.search {
-    display: flex;
+
+/* =========================
+   13. FOOTER
+========================= */
+
+footer {
     width: 100%;
-    height: auto;
-
-    justify-content: right;
-
-}
-.searchText {
-    display: block;
-    width: 100%;
-    border-radius: 10px;
-    border-radius: 10px 0px  0px 10px;
-    border-style: solid;
-    border-right: none;
-    border-width: 1px;
-
-
-    text-align: center;
-    border-color: blueviolet;
-    height: 45px;
-}
-.searchText:active, .searchText:focus {
-    outline: none;
-    border-radius: 10px;
-    border-radius: 10px 0px  0px 10px;
-    border-style: solid;
-    border-right: none;
-    border-width: 1px;
-    
+    min-height: 20px;
 }
 
-.searchButton{
-    width: 50px;
-    height: auto;
-    
-    border-radius: 0px 10px  10px 0;
-    border-style: solid;
-    border-left: none;
-    border-width: 1px;
+/* =========================
+   14. ACCESSIBILITY
+========================= */
 
-    background-color: white;
-    border-color: blueviolet;
+button:focus-visible {
+    outline: 3px solid blueviolet;
+    outline-offset: 3px;
 }
 
-.searchButton img {
-    display: block;
-    width: 90%;
-    height: auto;
-    margin:  0 auto;
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
