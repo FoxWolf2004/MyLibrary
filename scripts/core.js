@@ -406,12 +406,22 @@ const bookModal = (book) => {
   link.target = "_blank";
   link.rel = "noopener noreferrer";
   link.textContent = "Открыть в Open Library";
-
+  const textBlock = document.createElement("div")
+  textBlock.classList.add("textBlock");
   const info = document.createElement("div");
   info.classList.add("bookModal__info");
 
-  info.append(
+
+
+  const titleBlock = document.createElement("div")
+  titleBlock.setAttribute("class","titleBlock")
+
+    titleBlock.append(
     title,
+    closeButton
+  )
+
+  info.append(
     author,
     year,
     languages,
@@ -422,8 +432,8 @@ const bookModal = (book) => {
     key,
     link,
   );
-
-  modal.append(cover, info, closeButton);
+  textBlock.append(titleBlock ,info)
+  modal.append(cover, textBlock);
   document.querySelector(".modalOverlay").append(modal);
   closeButton.addEventListener("click", () => {
     modal.remove();

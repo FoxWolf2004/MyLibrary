@@ -138,7 +138,7 @@ nav {
 
     border: 1px solid blueviolet;
     border-radius: 0 10px 10px 0;
-
+    border-left-style: none;
     background-color: white;
 }
 
@@ -410,7 +410,8 @@ main,
 
 .bookModal {
     display: flex;
-
+    flex-direction: row;
+    gap: 5%;
     width: min(90%, 900px);
     max-height: 85vh;
 
@@ -420,7 +421,7 @@ main,
     padding: clamp(16px, 3vw, 30px);
 
     border-radius: 12px;
-
+    
     background-color: black;
     color: white;
 }
@@ -434,7 +435,36 @@ main,
     gap: 10px;
     margin-inline: 10px;
 }
+.bookModal > button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    width: 25px;
+    height: 25px;
+    
 
+}
+
+
+ .textBlock {
+    display: flex;
+    width: 100%;
+    height: auto;
+flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.titleBlock {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+}
+.titleBlock h2 {
+
+}
 /* =========================
    13. FOOTER
 ========================= */
